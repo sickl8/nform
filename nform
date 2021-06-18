@@ -1,0 +1,45 @@
+#!/usr/local/bin/python3.7
+import string
+try:
+	check = input()
+	while True:
+		while check[-6:] == 'Error!':
+			file_name = check.split(sep=':')[0]
+			# print(file_name + ':\033[91m' + ' Error!' + '\033[0m')
+			check = input()
+			if 'Unrecognized' in check:
+				sp = check.translate(str.maketrans('', '', string.punctuation)).split()
+				line = int(sp[3])
+				col = int(sp[5][:-3])
+				err = 'UNRECOGNIZED_TOKEN'
+				desc = 'Unrecognized token'
+				print('\033[1m', end='')
+				print(file_name, line, col, end='', sep=':')
+				print('', '\033[91m' + err + ':' + '\033[0m' + '\033[1m', desc)
+				print('\033[0m', end='')
+				check = input()
+			else:
+				while 'line' in check:
+					sp = check.translate(str.maketrans('', '', string.punctuation)).split()
+					line = int(sp[3])
+					col = int(sp[5])
+					err = sp[1]
+					desc = check.split(sep=':')[-1].strip()
+					print('\033[1m', end='')
+					print(file_name, line, col, end='', sep=':')
+					print('', '\033[91m' + err + ':' + '\033[0m' + '\033[1m', desc)
+					print('\033[0m', end='')
+					check = input()
+		if check[-3:] == 'OK!':
+			file_name = check.split(sep=':')[0]
+			print(file_name + ':\033[92m' + ' OK!' + '\033[0m')
+			check = input()
+		if 'is not valid C or C header file' in check:
+			file_name = check.split()[0]
+			# print('\033[1m', end='')
+			print(file_name, end=':')
+			print(' \033[93mFile Isn\'t valid C or a C Header File')
+			print('\033[0m', end='')
+			check = input()
+except EOFError:
+	pass
