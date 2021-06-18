@@ -1,6 +1,11 @@
 # nform
 Format Norminette Output!
 (useful if you're used to [cmd + click] to see where errors are)
+
+# Installation
+    ./install.sh INSTALL_FOLDER
+    # INSTALL_FOLDER defaults to ~/.scripts
+
 # Usage
     norminette | nform
  
