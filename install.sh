@@ -15,11 +15,11 @@ then
 	# echo not found
 	if [ -f ~/.zshrc ]; then
 		# echo zsh
-		echo "export PATH=$PATH:$INSTALL_FOLDER" >> ~/.zshrc
+		echo "export PATH=\"\$PATH\":\"$INSTALL_FOLDER\"" >> ~/.zshrc
 		echo installed successfully
 	elif [ -f ~/.bashrc ]; then
 		# echo bash
-		echo "export PATH=$PATH:$INSTALL_FOLDER" >> ~/.bashrc
+		echo "export PATH=\"\$PATH\":\"$INSTALL_FOLDER\"" >> ~/.bashrc
 		echo installed successfully
 	else
 		echo 'no bashrc or zshrc found, install manually'
