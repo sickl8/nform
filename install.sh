@@ -10,6 +10,7 @@ fi
 echo installing in $INSTALL_FOLDER ...
 mkdir -p $INSTALL_FOLDER
 cp nform $INSTALL_FOLDER/
+chmod +x $INSTALL_FOLDER/nform
 if ! command -v nform &> /dev/null
 then
 	# echo not found
@@ -22,7 +23,8 @@ then
 		echo "export PATH=\"\$PATH\":\"$INSTALL_FOLDER\"" >> ~/.bashrc
 		echo installed successfully
 	else
-		echo 'no bashrc or zshrc found, install manually'
+		echo -e -n 'no bashrc or zshrc found.\ninstall manually by appending'
+		echo " 'export PATH=\"\$PATH\":\"$INSTALL_FOLDER\"' to your shell's rc."
 	fi
 else
 	true
