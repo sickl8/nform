@@ -3,8 +3,10 @@ Format Norminette Output!
 (useful if you're used to [cmd + click] to see where errors are)
 
 # Installation
-    ./install.sh INSTALL_FOLDER
-    # INSTALL_FOLDER defaults to ~/.scripts
+    git clone https://github.com/sickl8/nform.git && cd nform && chmod +x install.sh
+    ./install.sh
+    # or ./install INSTALL_FOLDER
+    # instalaltion folder defaults to ~/.scripts if not specified
 
 # Usage
     norminette | nform
