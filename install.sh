@@ -23,6 +23,8 @@ then
 		echo "export PATH=\"\$PATH\":\"$INSTALL_FOLDER\"" >> ~/.bashrc
 		echo installed successfully
 	else
+		
+		echo -e -n 
 		echo -e -n 'no bashrc or zshrc found.\ninstall manually by appending'
 		echo " 'export PATH=\"\$PATH\":\"$INSTALL_FOLDER\"' to your shell's rc."
 	fi
